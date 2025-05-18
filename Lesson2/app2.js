@@ -154,8 +154,31 @@ const students = [
 ];
 
 // 1. Lọc danh sách 3 học sinh đạt điểm TBHK cao nhất
+    // Dùng map để tạo ra danh sách học sinh với điểm TBHK
+const top3Students = students.map((student) => {
+  let totalScore = 0;
+  const subjects = Object.values(student.scores);
+
+  // Tính tổng điểm cho từng môn
+  for (let i = 0; i < subjects.length; i++) {
+    totalScore += subjects[i].score;
+  }
+
+  return {
+    name: student.name,
+    average: totalScore / subjects.length, // Tính điểm trung bình
+  };
+});
+
+    // Sắp xếp học sinh theo điểm trung bình giảm dần và lấy 3 học sinh đầu tiên
+top3Students.sort((a, b) => b.average - a.average);
+const top3 = top3Students.slice(0, 3);
+    // Hiển thi Kết quả
+console.log("3 học sinh đạt điểm TBHK cao nhất:", top3);
 
 // 2. Tìm học sinh đạt điểm TBHK thấp nhất
+lowest_stu = top3Students[students.length - 1];  // Phần tử cuối cùng của danh sách
+console.log("Học sinh đạt điểm TBHK thấp nhất:", lowest_stu);
 
 // Sắp xếp học sinh theo điểm trung bình tăng dần và lấy học sinh đầu tiên (thấp nhất)
 
