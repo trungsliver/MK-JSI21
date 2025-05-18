@@ -178,12 +178,34 @@ console.log("3 học sinh đạt điểm TBHK cao nhất:", top3);
 
 // 2. Tìm học sinh đạt điểm TBHK thấp nhất
 lowest_stu = top3Students[students.length - 1];  // Phần tử cuối cùng của danh sách
-console.log("Học sinh đạt điểm TBHK thấp nhất:", lowest_stu);
-
-// Sắp xếp học sinh theo điểm trung bình tăng dần và lấy học sinh đầu tiên (thấp nhất)
+console.log("Học sinh đạt điểm TBHK thấp nhất:", lowest_stu)
 
 // 3. Tính điểm trung bình HK của toàn bộ 10 bạn học sinh trong lớp.
+totalAvg = 0;
+    // Tính tổng điểm TBHK của toàn bộ hsinh trong dsach
+for (let i=0; i < top3Students.length; i++){
+    totalAvg += top3Students[i].average
+}
+// Lấy điểm TBHK trung bình
+avg = totalAvg / top3Students.length
+console.log("Điểm TBHK trung bình của toàn bộ học sinh:", avg);
 
 // 4. In ra tên các học sinh đạt danh hiệu học lực: Giỏi - Khá - Trung Bình
-  
+const hocLuc = top3Students.map((student) =>{
+    if (student.average >= 8){
+        evaluation = 'Giỏi';
+    } else if (student.average >= 6.6){
+        evaluation = 'Khá';
+    } else {
+        evaluation = 'Trung Bình';
+    }
+    // Trả về tên học sinh và danh hiệu học lực
+    return { name: student.name, evaluation };
+})  
+console.log("Danh sách học sinh đạt danh hiệu học lực:", hocLuc)
+
+
 // 5. Lọc danh sách học sinh có số điểm TBHK >= 7 (chỉ cần hiển thị tên).
+    // Dùng filer()
+const stuAbove7 = top3Students.filter(stu => stu.average >= 7);
+console.log("Danh sách học sinh có điểm TBHK >= 7:", stuAbove7);
