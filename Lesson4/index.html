@@ -10,6 +10,38 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 </head>
 <body>
+    <div class="container">
+        <div class="auth-container">
+            <!-- Login Form -->
+            <div class="form-container" id="loginForm">
+                <h2>Login</h2>
+                <form id="login">
+                    <input type="email" id="loginEmail" placeholder="Email" required autocomplete="email">
+                    <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div class="form-container" id="registerForm" style="display: none;">
+                <h2>Register</h2>
+                <form id="register">
+                    <input type="email" id="registerEmail" placeholder="Email" required autocomplete="email">
+                    <input type="password" id="registerPassword" placeholder="Password" required autocomplete="new-password">
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </div>
+
+        <!-- User Info Section -->
+        <div class="user-info" id="userInfo" style="display: none;">
+            <h2>Welcome!</h2>
+            <p>Email: <span id="userEmail"></span></p>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
     
     <script src="./src/js/firebase-config.js"></script>
     <script src="./src/js/script.js"></script>
