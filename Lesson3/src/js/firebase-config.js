@@ -8,7 +8,7 @@ import { getDatabase } from "https://www.gstatic.com/firebasejs/10.13.2/firebase
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    // các bạn tự ghi vào đây nhé
+    
 };
 
 // // Initialize Firebase
@@ -20,5 +20,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+// const auth = getAuth(app);
 
 export { database };
